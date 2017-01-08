@@ -1,0 +1,23 @@
+{
+  "name": "customer-db-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikita Perepelitsa",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
+    "browserify": "^13.3.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^3.0.0",
+    "vinyl-source-stream": "^1.1.0",
+  }
+}
