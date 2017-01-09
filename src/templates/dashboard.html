@@ -1,0 +1,5 @@
+<div class="" ng-controller="dbController as db">
+    <button ng-click="db.add()"></button>
+    <button ng-click="db.test()">change</button>
+    <button ng-repeat="c in db.data" ng-click="db.delete(c.$id)">{{c.name}}</button>
+</div>
