@@ -7,5 +7,5 @@ var gulp = require('gulp'),
 module.exports = gulp.task('scripts', function() {
     return gulp.src(['./src/js/app.js', './src/js/Controllers/*.js'])
         .pipe(concat('bundle.js'))
-        .pipe(gulp.dest('./src/js/'));
+        .pipe(gulp.dest('./build/'));
 });

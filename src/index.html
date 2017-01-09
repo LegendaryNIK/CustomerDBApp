@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router@0.3.2/release/angular-ui-router.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
     <script src="bundle.js"></script>
 </head>
 <body ng-app="CustomerApp">
-<div ng-controller="testCtrl as test">{{test.message}}</div>
+<div class="" ng-controller="authCtrl as au">
+    <form action="" ng-submit="">
+        <input type="text" ng-model="au.mail" placeholder="email">
+        <input type="text" ng-model="au.pass"  placeholder="pass">
+        <button ng-click="au.login()">login</button>
+        <button ng-click="au.register()">reg</button>
+        <button ng-click="au.logout()">out</button>
+    </form>
+    <h1 ng-show="au.firebaseUser">Logged In!</h1>
+</div>
 </body>
 </html>

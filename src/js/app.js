@@ -1,9 +1,5 @@
-'use strict';
 
-require('angular');
-require('angular-ui-router');
-
-var app = angular.module('CustomerApp',['ui.router'])
+var app = angular.module('CustomerApp',['firebase','ui.router'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider

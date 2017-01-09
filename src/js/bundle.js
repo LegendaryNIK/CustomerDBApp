@@ -2,6 +2,7 @@
 
 require('angular');
 require('angular-ui-router');
+require('firebase');
 
 var app = angular.module('CustomerApp',['ui.router'])
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -16,6 +17,9 @@ var app = angular.module('CustomerApp',['ui.router'])
                 templateURL:''
             })
     });
+'use strict';
+
 app.controller('testCtrl', function(){
-    this.message = 'Hi!';
+    this.message = 'Hola!';
 });
+
