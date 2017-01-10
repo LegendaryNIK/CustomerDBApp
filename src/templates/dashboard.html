@@ -1,5 +1,16 @@
 <div class="" ng-controller="dbController as db">
-    <button ng-click="db.add()"></button>
-    <button ng-click="db.test()">change</button>
-    <button ng-repeat="c in db.data" ng-click="db.delete(c.$id)">{{c.name}}</button>
+    <customer-form></customer-form>
+    <button ng-click="db.logout()">exit</button>
+    <br>
+    <input type="text" ng-model="db.name" placeholder="name">
+    <input type="text" ng-model="db.email"  placeholder="email">
+    <input type="text" ng-model="db.phone" placeholder="phone">
+    <input type="text" ng-model="db.city"  placeholder="city">
+    <button ng-click="db.submit()">new add</button>
+
+    <div ng-repeat="c in db.data" >
+        {{c.name}} {{c.phone}} {{c.email}} {{c.city}}
+        <button ng-click="db.delete(c.$id)">delete</button>
+        <button ng-click="db.getOldItem(c.$id)">change</button>
+    </div>
 </div>

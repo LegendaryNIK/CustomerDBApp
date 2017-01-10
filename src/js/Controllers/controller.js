@@ -26,10 +26,6 @@ app.factory('Auth', function ($firebaseAuth) {
     return $firebaseAuth();
 });
 
-
-
-
-
 // authentification controller
 app.controller('authCtrl', ['$state','Auth', function ($state, Auth) {
     //watch authState
@@ -42,7 +38,6 @@ app.controller('authCtrl', ['$state','Auth', function ($state, Auth) {
             console.log('not logged in');
         }
     });
-
     //log in
     this.login = function(){
         Auth.$signInWithEmailAndPassword(this.mail, this.pass).then(function (firebaseUser) {
@@ -52,7 +47,6 @@ app.controller('authCtrl', ['$state','Auth', function ($state, Auth) {
             console.error("Authentication failed:", error);
         })
     };
-
     //register new
     this.register = function () {
         Auth.$createUserWithEmailAndPassword(this.mail, this.pass)
@@ -63,14 +57,12 @@ app.controller('authCtrl', ['$state','Auth', function ($state, Auth) {
             console.error("Error: ", error);
         });
     };
-
     //log out
     this.logout = function () {
         Auth.$signOut();
     }
 
 }]);
-
 
 
 
@@ -87,19 +79,16 @@ app.controller('dbController', function ($firebaseArray, Auth) {
                 console.log('added record with id ${id}');
             });
     };
-
     function Customer(name, email, phone, city){
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.city = city
     }
-
     this.delete = function (id) {
         console.log(id);
         this.data.$remove(this.data.$getRecord(id));
     };
-
     this.getOldItem = function (id) {
         itemId = id;
         editMode = true;
@@ -116,9 +105,7 @@ app.controller('dbController', function ($firebaseArray, Auth) {
         newItem.city = this.city;
         this.data.$save(newItem).then(editMode = false);
     };
-    
     this.submit = () => {editMode ?  this.editSubmit(itemId) : this.add(this.name, this.email, this.phone, this.city)};
-
     this.logout = function () {
         Auth.$signOut();
     }
