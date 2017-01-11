@@ -1,0 +1,7 @@
+<br>Name: {{$ctrl.customer.name}}
+<br>Phone {{$ctrl.customer.phone}}
+<br>Email {{$ctrl.customer.email}}
+<br>City {{$ctrl.customer.city}}
+<img ng-src="{{$ctrl.customer.photo.ma}}" alt="">
+<button ng-click="$ctrl.delete($ctrl.customer.$id)">delete</button>
+<button ng-click="$ctrl.getOldItem($ctrl.customer.$id)">change</button>

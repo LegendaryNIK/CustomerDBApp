@@ -14,19 +14,22 @@
  return $firebaseAuth();
  }
  ]);*/
-
-
 app.factory('Auth', function ($firebaseAuth) {
     var config = {
         apiKey: "AIzaSyAEA_TcUq4sXhMP3PrrrnZhPjD4NEXVork",
         authDomain: "customerdbapp.firebaseapp.com",
-        databaseURL: "https://customerdbapp.firebaseio.com/"
+        databaseURL: "https://customerdbapp.firebaseio.com/",
+        storageBucket: "customerdbapp.appspot.com"
     };
     firebase.initializeApp(config);
+    this.editMode = false;
+    this.Url={};
     return $firebaseAuth();
 });
 
+
 // authentification controller
+/*
 app.controller('authCtrl', ['$state','Auth', function ($state, Auth) {
     //watch authState
     Auth.$onAuthStateChanged(firebaseUser => {
@@ -63,9 +66,9 @@ app.controller('authCtrl', ['$state','Auth', function ($state, Auth) {
     }
 
 }]);
+*/
 
-
-
+/*
 app.controller('dbController', function ($firebaseArray, Auth) {
     var ref = firebase.database().ref().child('customers');
     let itemId;
@@ -109,4 +112,4 @@ app.controller('dbController', function ($firebaseArray, Auth) {
     this.logout = function () {
         Auth.$signOut();
     }
-});
+});*/

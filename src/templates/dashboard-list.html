@@ -1,0 +1,5 @@
+<div ng-repeat="c in $ctrl.data" >
+    {{c.name}} {{c.phone}} {{c.email}} {{c.city}}
+    <button ng-click="$ctrl.delete(c.$id)">delete</button>
+    <button ng-click="$ctrl.getOldItem(c.$id)">change</button>
+</div>
