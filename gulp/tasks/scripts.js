@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     browserify = require('browserify');
 
 module.exports = gulp.task('scripts', function() {
-    return gulp.src(['./src/js/app.js', './src/js/Controllers/*.js'])
+    return gulp.src(['./src/js/app.js', './src/js/**/*.js'])
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest('./build/'));
 });
