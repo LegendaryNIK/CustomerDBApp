@@ -1,10 +1,23 @@
-<button ng-click="$ctrl.logout()">exit</button>
-<br>
-<input type="text" ng-model="$ctrl.name" placeholder="name">
-<input type="text" ng-model="$ctrl.email"  placeholder="email">
-<input type="text" ng-model="$ctrl.phone" placeholder="phone">
-<input type="text" ng-model="$ctrl.city"  placeholder="city">
-<input type="file" name="file" class="inputimg" id="nameImg" accept="image/*">
-<button ng-click="$ctrl.submit($ctrl.itemId)">new add</button>
-<button ng-click="$ctrl.uploadFile()">upload image</button>
-
+<div class="container">
+    <div ng-show="$ctrl.editMode">ALLOOOOO</div>
+    <form ng-submit="">
+        <div class="row">
+            <div class="inputs form-inline col-lg-offset-1">
+                <input type="text" ng-model="$ctrl.name" placeholder="Name" class="form-control">
+                <input type="email" ng-model="$ctrl.email"  placeholder="e-mail" class="form-control">
+                <input type="tel" ng-model="$ctrl.phone" placeholder="phone" class="form-control">
+                <input type="text" ng-model="$ctrl.city"  placeholder="city" class="form-control">
+                <button ng-click="$ctrl.submit($ctrl.itemId)" class="btn btn-default">Save Customer</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="controlls col-lg-offset-5">
+                <label class="btn btn-default btn-file">
+                    Select Photo<input type="file" id="nameImg" accept="image/*" style="display: none">
+                </label>
+                <button ng-click="$ctrl.uploadFile()" class="btn btn-default" >Upload Photo</button>
+            </div>
+        </div>
+    </form>
+    <logoutbtn></logoutbtn>
+</div>

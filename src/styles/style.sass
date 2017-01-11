@@ -1,0 +1,76 @@
+$darkPrimary: #00796B
+$accent: #00BCD4
+$primary: #009688
+$lightPrimary: #B2DFDB
+$primaryText: #212121
+$secondaryText: #757575
+
+body
+  transition: all 2s ease
+  margin-top: 100px
+  .login-form
+    display: block
+    background-color: $lightPrimary
+    padding: 10px
+    border-radius: 15px
+dashboard
+  .menu
+    top: 0
+    background-color: $primary
+    width: 100%
+    position: fixed
+    z-index: 1000
+
+  customer
+    margin-top: 100px
+.card
+    .btn
+      background-color: $accent
+      color: $primaryText
+    text-align: center
+    height: 400px
+    margin: 10px 10px
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+    img
+        height: 63%
+        width: 96%
+        margin: 2% 2%
+        object-fit: cover
+        background-image: url("http://multimedia.3m.com/mws/media/778065P/transparent-graphic-film.jpg?boundedSize=310")
+    .descr
+      padding: 5% 2%
+      height: 35%
+    .info
+      display: inline-block
+      float: left
+      text-align: left
+      width: 70%
+    .btns
+      display: inline-block
+      float: right
+      width: 30%
+      button
+        padding: 15%
+
+.red
+  background-color: red
+logoutbtn
+  position: absolute
+  right: 10px
+  top: 10px
+
+.inputs
+  margin-top: 10px
+
+.controlls
+  margin-top: 10px
+  margin-bottom: 10px
+
+@media screen and (max-width: 760px)
+  dashboard
+    .card
+      .descr
+        padding: 2% 2%
+        .btns
+          button
+            padding: 5%

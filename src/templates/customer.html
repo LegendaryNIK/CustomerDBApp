@@ -1,7 +1,17 @@
-<br>Name: {{$ctrl.customer.name}}
-<br>Phone {{$ctrl.customer.phone}}
-<br>Email {{$ctrl.customer.email}}
-<br>City {{$ctrl.customer.city}}
-<img ng-src="{{$ctrl.customer.photo.ma}}" alt="">
-<button ng-click="$ctrl.delete($ctrl.customer.$id)">delete</button>
-<button ng-click="$ctrl.getOldItem($ctrl.customer.$id)">change</button>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <div class="card">
+        <img ng-src="{{$ctrl.customer.photo.ma}}" alt="" class="img-responsive">
+        <div class="descr">
+            <div class="info">
+                <p><b>Name:</b> {{$ctrl.customer.name}}</p>
+                <p><b>Phone:</b> {{$ctrl.customer.phone}}</p>
+                <p><b>E-mail:</b> {{$ctrl.customer.email}}</p>
+                <p><b>City:</b> {{$ctrl.customer.city}}</p>
+            </div>
+            <div class="btns">
+                <button ng-click="$ctrl.delete($ctrl.customer.$id)" class="del-btn btn btn-block"><span class="glyphicon glyphicon-trash"></span></button>
+                <button ng-click="$ctrl.getOldItem($ctrl.customer.$id)" class="btn btn-block">Edit info</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,8 +22,6 @@ app.factory('Auth', function ($firebaseAuth) {
         storageBucket: "customerdbapp.appspot.com"
     };
     firebase.initializeApp(config);
-    this.editMode = false;
-    this.Url={};
     return $firebaseAuth();
 });
 
