@@ -9,21 +9,21 @@ function loginCtrl($state, Auth) {
     Auth.$onAuthStateChanged(firebaseUser => {
         this.firebaseUser = firebaseUser;
         if (firebaseUser) {
-            console.log(firebaseUser);
+            //console.log(firebaseUser);
             $state.go('dashboard');
         } else {
-            console.log('not logged in');
+            //console.log('not logged in');
         }
     });
     
     //log in
     this.login = function () {
         Auth.$signInWithEmailAndPassword(this.mail, this.pass).then(function (firebaseUser) {
-            console.log('Signed as', firebaseUser);
-            $state.go('dashboard');
+            //console.log('Signed as', firebaseUser);
+            //$state.go('dashboard');
         }).catch(function (error) {
-            console.error("Authentication failed:", error);
-            alert(error);
+            console.error("Authentication failed: ", error);
+            alert("Authentication failed: " + error);
         })
     };
     
@@ -31,10 +31,11 @@ function loginCtrl($state, Auth) {
     this.register = function () {
         Auth.$createUserWithEmailAndPassword(this.mail, this.pass)
             .then(function (firebaseUser) {
-                console.log("User " + firebaseUser.uid + " created successfully!");
-                this.login();
+                //console.log("User " + firebaseUser.uid + " created successfully!");
+                //this.login();
             }).catch(function (error) {
             console.error("Error: ", error);
+            alert("User not registered: " + error);
         });
     };
     

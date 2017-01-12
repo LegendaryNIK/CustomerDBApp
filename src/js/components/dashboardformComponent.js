@@ -6,8 +6,11 @@ app.component('dashboardform',{
     }
 });
 
-function dashboardFormCtrl(vbService) {
+function dashboardFormCtrl(vbService, $scope) {
+    
     this.editMode = vbService;
+    this.isUploaded = true;
+    
     this.add =  () => {
         let addCustomer = new Customer(this.name, this.email, this.phone, this.city, this.url);
         this.data.$add(addCustomer).then(this.reset());
@@ -45,13 +48,19 @@ function dashboardFormCtrl(vbService) {
     };
 
     this.uploadFile = () => {
-
         this.selectedFile = document.getElementById('nameImg').files[0];
-        if (this.selectedFile) {
+        if (this.selectedFile && this.url==null) {
+            this.isUploaded = false;
             var filename = this.selectedFile.name + Math.random();
             var storageRef = firebase.storage().ref('/customers/' + filename);
-            var uploadTask = storageRef.put(this.selectedFile)
-                .then(() => this.url = storageRef.getDownloadURL().then(alert('Image Uploaded')));
-        } else alert('Please choose a photo');
+            var uploadTask = storageRef.put(this.selectedFile);
+            uploadTask
+                .then(() => {
+                    this.url = storageRef.getDownloadURL();
+                    this.isUploaded = true;
+                    $scope.$apply();
+                });
+        }
     }
+
 }
