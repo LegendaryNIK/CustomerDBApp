@@ -8,13 +8,14 @@ app.component('customer',{
 });
 
 function customerCtrl(vbService) {
+    let editMode = vbService;
+    
     this.delete = (id) => {
         this.data.$remove(this.data.$getRecord(id));
     };
     
     this.getOldItem =  (id) => {
-        vbService.itemId = id;
-        vbService.editMode = true;
-        alert('Entering edit mode');
+        editMode.setValue(true);
+        editMode.itemId = id;
     };
 }

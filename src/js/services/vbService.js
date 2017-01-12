@@ -1,3 +1,11 @@
 app.service('vbService',function () {
-    this.editMode = false;
+    var editMode = false;
+    return {
+        setValue: function(newValue){
+            editMode = newValue;
+        },
+        getValue: function(){
+            return editMode;
+        }
+    }
 });

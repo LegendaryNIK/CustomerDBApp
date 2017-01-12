@@ -1,8 +1,9 @@
-<div class="menu">
+<div class="menu" ng-class="{'red': $ctrl.editMode.getValue()}">
     <dashboardform data="$ctrl.data"></dashboardform>
 </div>
+<div class="block"  ng-show="$ctrl.editMode.getValue()"></div>
 <div class="container">
     <div class="row">
-<customer ng-repeat="c in $ctrl.data" customer="c" data="$ctrl.data" ></customer>
+        <customer ng-repeat="c in $ctrl.data" customer="c" data="$ctrl.data" ></customer>
     </div>
 </div>

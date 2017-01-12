@@ -2,19 +2,17 @@ app.component('dashboardform',{
     templateUrl: '/templates/dashboard-comp.html',
     controller: dashboardFormCtrl,
     bindings:   {
-        data: '<',
-        editMode: '<'
+        data: '<'
     }
 });
 
 function dashboardFormCtrl(vbService) {
-    
+    this.editMode = vbService;
     this.add =  () => {
         let addCustomer = new Customer(this.name, this.email, this.phone, this.city, this.url);
         this.data.$add(addCustomer).then(this.reset());
-        vbService.editMode = false;
     };
-    
+
     function Customer(name, email, phone, city, photo = ''){
         this.name = name;
         this.email = email;
@@ -30,11 +28,11 @@ function dashboardFormCtrl(vbService) {
         if(this.phone!=null) newItem.phone = this.phone;
         if(this.city!=null) newItem.city = this.city;
         if(this.url!=null) newItem.photo = this.url;
-        this.data.$save(newItem).then(vbService.editMode = false).then(this.reset());
+        this.data.$save(newItem).then(this.editMode.setValue(false)).then(this.reset());
     };
     
     this.submit = () => {
-        vbService.editMode ? this.editSubmit(vbService.itemId) : this.add(this.name, this.email, this.phone, this.city, this.url)
+        this.editMode.getValue() ? this.editSubmit(vbService.itemId) : this.add(this.name, this.email, this.phone, this.city, this.url);
     };
     
     this.reset = () => {
@@ -43,17 +41,17 @@ function dashboardFormCtrl(vbService) {
         this.phone = undefined;
         this.city = undefined;
         this.url = null;
-        document.getElementById('nameImg').files[0] = null;
+        document.getElementById('nameImg').files[0] = undefined;   //TODO: IT'S STILL DOESN'T WORK =_=
     };
-    
+
     this.uploadFile = () => {
+
         this.selectedFile = document.getElementById('nameImg').files[0];
         if (this.selectedFile) {
-            this.test = true;
             var filename = this.selectedFile.name + Math.random();
             var storageRef = firebase.storage().ref('/customers/' + filename);
             var uploadTask = storageRef.put(this.selectedFile)
-                .then(() => this.url = storageRef.getDownloadURL().then((alert('Image loaded'))));
+                .then(() => this.url = storageRef.getDownloadURL().then(alert('Image Uploaded')));
         } else alert('Please choose a photo');
     }
 }
